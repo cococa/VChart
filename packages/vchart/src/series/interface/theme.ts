@@ -3,6 +3,7 @@ import type { IBoxPlotSeriesTheme } from '../box-plot/interface';
 import type { IBarSeriesTheme } from '../bar/interface';
 import type { ILineSeriesTheme } from '../line/interface';
 import type { IScatterSeriesTheme } from '../scatter/interface';
+import type { IEffectScatterSeriesTheme } from '../effect-scatter/interface';
 import type { IAreaSeriesTheme } from '../area/interface';
 import type { IRadarSeriesTheme } from '../radar/interface';
 import type { IPieSeriesTheme } from '../pie/interface';
@@ -70,6 +71,7 @@ export interface ISeriesTheme {
   [SeriesTypeForThemeEnum.waterfall_horizontal]?: IWaterfallSeriesTheme;
 
   [SeriesTypeEnum.scatter]?: IScatterSeriesTheme;
+  [SeriesTypeEnum.effectScatter]?: IEffectScatterSeriesTheme;
 
   [SeriesTypeEnum.radar]?: IRadarSeriesTheme;
   [SeriesTypeForThemeEnum.radar_stack]?: IRadarSeriesTheme;

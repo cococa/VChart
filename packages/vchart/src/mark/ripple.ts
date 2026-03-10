@@ -12,6 +12,8 @@ import { registerSymbol } from '@visactor/vrender-kits';
 export class RippleMark extends GlyphMark<IRippleMarkSpec> implements IRippleMark {
   static readonly type = MarkTypeEnum.ripple;
   readonly type = RippleMark.type;
+  private static readonly EXPAND_FACTOR = 1.1;
+  private static readonly RING_PHASE_GAP = 0.42;
 
   protected _getDefaultStyle() {
     const defaultStyle: IMarkStyle<IRippleMarkSpec> = {
@@ -49,12 +51,24 @@ export class RippleMark extends GlyphMark<IRippleMarkSpec> implements IRippleMar
   protected _positionEncoder = (glyphAttrs: any, datum: Datum, g: IGlyph) => {
     const { ripple = (g.attribute as any).ripple, size = (g.attribute as any).size } = glyphAttrs;
     const r = clamp(ripple, 0, 1);
-    const rippleSize = size * 0.5;
+    const rippleSize = size * RippleMark.EXPAND_FACTOR;
+    const phase = (offset: number) => {
+      return (r + offset) % 1;
+    };
+    const ringAttrs = (t: number, maxOpacity: number) => {
+      // Use a bell-shaped alpha curve so both boundaries (t=0/1) are transparent.
+      // This hides the loop reset point and avoids visible stutter/flicker.
+      const alpha = 4 * t * (1 - t);
+      return {
+        size: size + rippleSize * t,
+        fillOpacity: maxOpacity * alpha
+      };
+    };
 
     return {
-      ripple0: { size: size + rippleSize * r, fillOpacity: 0.75 - r * 0.25 },
-      ripple1: { size: size + rippleSize * (1 + r), fillOpacity: 0.5 - r * 0.25 },
-      ripple2: { size: size + rippleSize * (2 + r), fillOpacity: 0.25 - r * 0.25 }
+      ripple0: ringAttrs(phase(0), 0.75),
+      ripple1: ringAttrs(phase(RippleMark.RING_PHASE_GAP), 0.5),
+      ripple2: ringAttrs(phase(RippleMark.RING_PHASE_GAP * 2), 0.25)
     };
   };
 }

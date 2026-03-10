@@ -14,6 +14,7 @@ export enum SeriesTypeEnum {
   radar = 'radar',
   rose = 'rose',
   scatter = 'scatter',
+  effectScatter = 'effectScatter',
   circularProgress = 'circularProgress',
   wordCloud = 'wordCloud',
   funnel = 'funnel',

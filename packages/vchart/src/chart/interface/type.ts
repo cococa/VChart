@@ -13,6 +13,7 @@ export const enum ChartTypeEnum {
   radar = 'radar',
   rose = 'rose',
   scatter = 'scatter',
+  effectScatter = 'effectScatter',
   sequence = 'sequence',
   circularProgress = 'circularProgress',
   linearProgress = 'linearProgress',

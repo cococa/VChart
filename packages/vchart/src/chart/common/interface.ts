@@ -11,6 +11,7 @@ import type { ILinkSeriesSpec } from '../../series/link/interface';
 import type { IRadarSeriesSpec } from '../../series/radar/interface';
 import type { IRoseSeriesSpec } from '../../series/rose/interface';
 import type { IScatterSeriesSpec } from '../../series/scatter/interface';
+import type { IEffectScatterSeriesSpec } from '../../series/effect-scatter/interface';
 import type { IWordCloudSeriesSpec } from '../../series/word-cloud/interface';
 import type { IGaugePointerSeriesSpec, IGaugeSeriesSpec } from '../../series/gauge/interface';
 import type { IBoxPlotSeriesSpec } from '../../series/box-plot/interface';
@@ -50,6 +51,7 @@ export interface ICommonChartSpec extends Omit<IChartSpec, 'series'> {
     | IRadarSeriesSpec
     | IRoseSeriesSpec
     | IScatterSeriesSpec
+    | IEffectScatterSeriesSpec
     | ICircularProgressSeriesSpec
     | ILinearProgressSeriesSpec
     | IWordCloudSeriesSpec

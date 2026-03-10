@@ -22,6 +22,8 @@ import { BasePieSeries, PieSeries, registerPieSeries } from './pie/pie';
 import type { IArcLabelSpec, IPieAnimationParams, IPieSeriesSpec, PieAppearPreset } from './pie/interface';
 import { ScatterSeries, registerScatterSeries } from './scatter/scatter';
 import type { IScatterSeriesSpec } from './scatter/interface';
+import { EffectScatterSeries, registerEffectScatterSeries } from './effect-scatter/effect-scatter';
+import type { IEffectScatterSeriesSpec } from './effect-scatter/interface';
 import { RoseSeries, registerRoseSeries } from './rose/rose';
 import type { IRoseSeriesSpec } from './rose/interface';
 import { RadarSeries, registerRadarSeries } from './radar/radar';
@@ -113,6 +115,7 @@ export {
   PieSeries,
   SankeySeries,
   ScatterSeries,
+  EffectScatterSeries,
   SunburstSeries,
   RoseLikeSeries,
   RoseSeries,
@@ -163,6 +166,7 @@ export {
   registerRoseSeries,
   registerSankeySeries,
   registerScatterSeries,
+  registerEffectScatterSeries,
   registerSunBurstSeries,
   registerTreemapSeries,
   registerWaterfallSeries,
@@ -210,6 +214,7 @@ export type {
   IRoseSeriesSpec,
   ISankeySeriesSpec,
   IScatterSeriesSpec,
+  IEffectScatterSeriesSpec,
   ISunburstSeriesSpec,
   ITreemapSeriesSpec,
   IWaterfallSeriesSpec,

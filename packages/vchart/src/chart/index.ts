@@ -42,6 +42,8 @@ import type { ISankeyChartSpec } from './sankey';
 import { SankeyChart, registerSankeyChart } from './sankey';
 import type { IScatterChartSpec } from './scatter';
 import { ScatterChart, registerScatterChart } from './scatter';
+import type { IEffectScatterChartSpec } from './effect-scatter';
+import { EffectScatterChart, registerEffectScatterChart } from './effect-scatter';
 import type { ISequenceChartSpec } from './sequence';
 import { SequenceChart, registerSequenceChart } from './sequence';
 import type { ISunburstChartSpec } from './sunburst';
@@ -95,6 +97,7 @@ export {
   RoseChart,
   SankeyChart,
   ScatterChart,
+  EffectScatterChart,
   SunburstChart,
   SequenceChart,
   WaterfallChart,
@@ -130,6 +133,7 @@ export {
   registerRoseChart,
   registerSankeyChart,
   registerScatterChart,
+  registerEffectScatterChart,
   registerSequenceChart,
   registerSunburstChart,
   registerTreemapChart,
@@ -163,6 +167,7 @@ export type {
   IRangeAreaChartSpec,
   IRoseChartSpec,
   IScatterChartSpec,
+  IEffectScatterChartSpec,
   ISankeyChartSpec,
   ISequenceChartSpec,
   ISunburstChartSpec,
