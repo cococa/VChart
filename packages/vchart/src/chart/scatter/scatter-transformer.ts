@@ -5,6 +5,6 @@ export class ScatterChartSpecTransformer<
   T extends IScatterChartSpec = IScatterChartSpec
 > extends CartesianChartSpecTransformer<T> {
   protected _getDefaultSeriesSpec(spec: IScatterChartSpec): any {
-    return super._getDefaultSeriesSpec(spec, ['point', 'size', 'shape', 'shapeField', 'sizeField']);
+    return super._getDefaultSeriesSpec(spec, ['point', 'size', 'shape', 'shapeField', 'sizeField', 'ripple']);
   }
 }

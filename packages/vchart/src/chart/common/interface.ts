@@ -87,7 +87,8 @@ export interface ICommonChartSpec extends Omit<IChartSpec, 'series'> {
   markPoint?: IMarkPointSpec | IMarkPointSpec[];
 
   /**
-   * 是否开启自动 bandSize。如果开启，会根据传入的 barWidth 等配置自动计算 bandSize，从而影响轴实际长度
+   * 是否开启自动 bandSize。
+   * 如果开启，会根据传入的 barWidth 等配置自动计算 bandSize，从而影响轴实际长度。
    * @since 1.11.2
    */
   autoBandSize?:
