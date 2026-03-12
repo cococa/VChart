@@ -8,7 +8,6 @@ import { registerLineChart } from './chart/line';
 import { registerAreaChart } from './chart/area';
 import { registerBarChart } from './chart/bar';
 import { registerScatterChart } from './chart/scatter';
-import { registerEffectScatterChart } from './chart/effect-scatter';
 import { registerMapChart } from './chart/map';
 import { registerPieChart } from './chart/pie';
 import { registerRoseChart } from './chart/rose';
@@ -88,7 +87,6 @@ export { VChart, DefaultTicker, registerAnimate };
 export {
   // charts
   registerScatterChart,
-  registerEffectScatterChart,
   registerRoseChart,
   registerRadarChart,
   registerHistogramChart,

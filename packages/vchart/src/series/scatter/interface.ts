@@ -1,18 +1,38 @@
 import type { ICartesianSeriesSpec, ICartesianSeriesTheme } from '../cartesian/interface';
 import type { IMarkSpec, IMarkTheme } from '../../typings/spec/common';
 import type { ISymbolMarkSpec, IVisualSpecBase, ShapeType, FunctionType } from '../../typings';
+import type { IRippleMarkSpec } from '../../typings/visual';
 import type { IAnimationSpec } from '../../animation/spec';
 import type { IMarkProgressiveConfig } from '../../mark/interface';
 import type { SeriesMarkNameEnum } from '../interface/type';
 import type { ILineLikeLabelSpec } from '../mixin/interface';
 import type { IMultiLabelSpec } from '../../component/label/interface';
 
-export type ScatterMarks = 'point' | 'label';
+export type ScatterMarks = 'point' | 'label' | 'ripplePoint';
 
 export type ScatterAppearPreset = 'scaleIn' | 'fadeIn';
 
 export interface IScatterAnimationParams {
   [key: string]: object;
+}
+
+export interface IScatterRippleSpec {
+  /**
+   * 是否显示涟漪。默认 false。
+   */
+  show?: boolean;
+  /**
+   * 波纹密度，取值范围 [0, 1]
+   */
+  value?: number | FunctionType<number>;
+  /**
+   * 波纹最大半径
+   */
+  size?: number | FunctionType<number>;
+  /**
+   * 波纹图元配置（包含样式、动画等）
+   */
+  point?: IMarkSpec<IRippleMarkSpec>;
 }
 
 export interface IScatterSeriesSpec
@@ -63,6 +83,19 @@ export interface IScatterSeriesSpec
    * 标签配置
    */
   [SeriesMarkNameEnum.label]?: IMultiLabelSpec<ILineLikeLabelSpec>;
+
+  /**
+   * 波纹配置，默认 show 为 false：
+   * `{ show: true, value: 1, size: 24, point: {...} }`
+   */
+  ripple?: IScatterRippleSpec;
+}
+
+export interface IScatterRippleTheme {
+  show?: boolean;
+  value?: number;
+  size?: number;
+  point?: Partial<IMarkTheme<IRippleMarkSpec>>;
 }
 
 export interface IScatterSeriesTheme extends ICartesianSeriesTheme {
@@ -78,4 +111,9 @@ export interface IScatterSeriesTheme extends ICartesianSeriesTheme {
    * 设置点图元的主题样式
    */
   [SeriesMarkNameEnum.point]?: Partial<IMarkTheme<ISymbolMarkSpec>>;
+
+  /**
+   * 波纹默认配置
+   */
+  ripple?: IScatterRippleTheme;
 }

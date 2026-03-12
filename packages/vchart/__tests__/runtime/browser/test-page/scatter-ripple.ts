@@ -18,7 +18,7 @@ const data = [
 ];
 
 const spec = {
-  type: 'effectScatter',
+  type: 'scatter',
   padding: { left: 65, right: 35, top: 50, bottom: 60 },
   title: {
     visible: true,
@@ -32,28 +32,32 @@ const spec = {
     type: 'linear',
     range: [10, 22]
   },
-  ripple: 1,
-  rippleSize: datum => datum.value * 0.3,
-  animationNormal: {
-    ripplePoint: {
-      channel: {
+  // New ripple object mode: default show is false, set show: true to enable.
+  ripple: {
+    show: true,
+    value: 1,
+    size: datum => datum.value * 0.2,
+    point: {
+      animationNormal: {
         ripple: {
-          from: 0,
-          to: 1
+          channel: {
+            ripple: {
+              from: 0,
+              to: 1
+            }
+          },
+          duration: 2800,
+          loop: true,
+          // startTime: (_datum, graphic) => {
+          //   const index = graphic?.context?.graphicIndex ?? 0;
+          //   return -((index % 12) / 12) * 2800;
+          // },
+          easing: 'linear'
         }
       },
-      duration: 2800,
-      loop: true,
-      startTime: (_datum, graphic) => {
-        const index = graphic?.context?.graphicIndex ?? 0;
-        return -((index % 12) / 12) * 2800;
-      },
-      easing: 'linear'
-    }
-  },
-  ripplePoint: {
-    style: {
-      fillOpacity: 0.4
+      style: {
+        fillOpacity: 0.4
+      }
     }
   },
   point: {
@@ -63,7 +67,7 @@ const spec = {
   },
   data: [
     {
-      id: 'effectScatterData',
+      id: 'scatterData',
       values: data
     }
   ],

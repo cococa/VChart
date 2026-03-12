@@ -13,7 +13,6 @@ import { map } from './map';
 import { pie } from './pie';
 import { radar } from './radar';
 import { scatter } from './scatter';
-import { effectScatter } from './effect-scatter';
 import { waterfall } from './waterfall';
 import { wordCloud } from './word-cloud';
 import { treemap } from './treemap';
@@ -31,7 +30,6 @@ import { mosaic } from './mosaic';
 
 export const series: ISeriesTheme = {
   scatter,
-  effectScatter,
   line,
   area,
   bar,

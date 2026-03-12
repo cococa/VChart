@@ -11,7 +11,6 @@ import type { ILinkSeriesSpec } from '../../series/link/interface';
 import type { IRadarSeriesSpec } from '../../series/radar/interface';
 import type { IRoseSeriesSpec } from '../../series/rose/interface';
 import type { IScatterSeriesSpec } from '../../series/scatter/interface';
-import type { IEffectScatterSeriesSpec } from '../../series/effect-scatter/interface';
 import type { IWordCloudSeriesSpec } from '../../series/word-cloud/interface';
 import type { IGaugePointerSeriesSpec, IGaugeSeriesSpec } from '../../series/gauge/interface';
 import type { IBoxPlotSeriesSpec } from '../../series/box-plot/interface';
@@ -51,7 +50,6 @@ export interface ICommonChartSpec extends Omit<IChartSpec, 'series'> {
     | IRadarSeriesSpec
     | IRoseSeriesSpec
     | IScatterSeriesSpec
-    | IEffectScatterSeriesSpec
     | ICircularProgressSeriesSpec
     | ILinearProgressSeriesSpec
     | IWordCloudSeriesSpec
@@ -89,7 +87,8 @@ export interface ICommonChartSpec extends Omit<IChartSpec, 'series'> {
   markPoint?: IMarkPointSpec | IMarkPointSpec[];
 
   /**
-   * 是否开启自动 bandSize。如果开启，会根据传入的 barWidth 等配置自动计算 bandSize，从而影响轴实际长度
+   * 是否开启自动 bandSize。
+   * 如果开启，会根据传入的 barWidth 等配置自动计算 bandSize，从而影响轴实际长度。
    * @since 1.11.2
    */
   autoBandSize?:
