@@ -7,13 +7,17 @@ export class LineChartSpecTransformer<T extends ILineChartSpec> extends Cartesia
     const seriesSpec = super._getDefaultSeriesSpec(spec, [
       'point',
       'line',
+      'area',
+      'seriesMark',
       'activePoint',
       'sampling',
       'samplingFactor',
       'pointDis',
       'pointDisMul',
       'markOverlap',
-      'lineLabel'
+      'lineLabel',
+      'areaLabel',
+      'useSequentialAnimation'
     ]);
     seriesSpec.seriesMark = spec.seriesMark ?? 'line';
     return seriesSpec;
